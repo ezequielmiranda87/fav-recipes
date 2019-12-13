@@ -1,0 +1,67 @@
+{
+    "users": [
+        {
+            "id": 1,
+            "username": "ezex",
+            "active": true
+        }
+    ],
+    "recipes": [
+        {
+            "id": 1,
+            "userId": 1,
+            "name": "new recipes",
+            "image_url": "",
+            "isVegetarian": true,
+            "diners": 2,
+            "ingredients": [
+                {
+                    "name": "",
+                    "quantity": 2
+                }
+            ],
+            "cookingInstructions": [
+                {
+                    "step": 1,
+                    "instruction": "step 1, bla bla bla"
+                },
+                {
+                    "step": 2,
+                    "instruction": "step 2, bla bla bla"
+                },
+                {
+                    "step": 3,
+                    "instruction": "step 3, bla bla bla"
+                }
+            ]
+        },
+        {
+            "id": 2,
+            "userId": 1,
+            "name": "new recipes",
+            "image_url": "",
+            "isVegetarian": true,
+            "diners": 2,
+            "ingredients": [
+                {
+                    "name": "",
+                    "quantity": 2
+                }
+            ],
+            "cookingInstructions": [
+                {
+                    "step": 1,
+                    "instruction": "step 1, bla bla bla"
+                },
+                {
+                    "step": 2,
+                    "instruction": "step 2, bla bla bla"
+                },
+                {
+                    "step": 3,
+                    "instruction": "step 3, bla bla bla"
+                }
+            ]
+        }
+    ]
+}

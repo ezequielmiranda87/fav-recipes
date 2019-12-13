@@ -1,6 +1,6 @@
-# fav-recipes
+# fav-recipes-app
 
-> Practial Full-stack Assignment
+> Practical Full-Stack Assignment
 
 ## Build Setup
 
