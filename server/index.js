@@ -86,4 +86,5 @@ async function start() {
         badge: true
     })
 }
+module.exports = app
 start()
