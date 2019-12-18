@@ -1,0 +1,40 @@
+{
+    "name": "fav-recipes-app",
+    "version": "1.0.0",
+    "description": "Practical Full-Stack Assignment",
+    "author": "ezexiel",
+    "private": true,
+    "scripts": {
+        "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
+        "start": " concurrently  \"cross-env NODE_ENV=development\" \"nodemon server/index.js --watch server\" \"npm run db\"\n",
+        "build": "nuxt build",
+        "generate": "nuxt generate",
+        "test": "jest",
+        "db": "json-server --watch db/db.json --routes db/routes.json --port 3030",
+        "generate-doc": "apidoc -i server -o api-doc/"
+    },
+    "dependencies": {
+        "@nuxtjs/axios": "^5.3.6",
+        "@nuxtjs/proxy": "1.3.3",
+        "@nuxtjs/pwa": "^3.0.0-0",
+        "apidoc": "^0.19.0",
+        "body-parser": "^1.19.0",
+        "concurrently": "^5.0.1",
+        "cross-env": "^5.2.0",
+        "express": "^4.16.4",
+        "json-server": "^0.15.1",
+        "nedb": "^1.8.0",
+        "nuxt": "^2.0.0"
+    },
+    "devDependencies": {
+        "nodemon": "^1.18.9",
+        "@nuxtjs/vuetify": "^1.0.0",
+        "eslint-config-prettier": "^4.1.0",
+        "eslint-plugin-prettier": "^3.0.1",
+        "prettier": "^1.16.4",
+        "@vue/test-utils": "^1.0.0-beta.27",
+        "babel-jest": "^24.1.0",
+        "jest": "^24.1.0",
+        "vue-jest": "^4.0.0-0"
+    }
+}
