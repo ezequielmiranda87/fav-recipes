@@ -6,10 +6,7 @@
 
         <v-card-text>
             <v-form>
-                <v-text-field
-                    label="Username"
-                    prepend-icon="mdi-account-circle"
-                ></v-text-field>
+                <v-text-field label="Username" prepend-icon="mdi-account-circle"></v-text-field>
                 <v-text-field
                     :type="showPassword ? 'text' : 'password'"
                     label="Password"
@@ -21,9 +18,9 @@
                 <v-divider />
 
                 <v-card-actions>
-                    <v-btn color="success">Register</v-btn>
+                    <v-btn>Sign in</v-btn>
                     <v-spacer />
-                    <v-btn color="info">Login</v-btn>
+                    <v-btn>Sign up</v-btn>
                 </v-card-actions>
             </v-form>
         </v-card-text>

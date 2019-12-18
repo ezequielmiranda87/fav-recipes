@@ -1,23 +1,21 @@
 <template>
     <div>
         <v-card flat class="recipes">
-            <v-card class="mx-auto" max-width="700" style="margin-top: -64px;">
-                <v-toolbar flat>
+            <v-card class="mx-auto" style="margin-top: -64px;">
+                <v-card-title>
                     <v-text-field
                         flat
-                        solo-inverted
                         hide-details
                         prepend-inner-icon="mdi-magnify"
                         label="Search"
-                        style="width: 200px"
                         class="ml-0 pl-4"
+                        v-model="search"
                     />
-                </v-toolbar>
+                </v-card-title>
 
                 <v-divider></v-divider>
             </v-card>
-
-            <RecipesList />
+            <RecipesList :search="search" />
         </v-card>
     </div>
 </template>
@@ -28,6 +26,35 @@ import RecipesList from '../components/RecipesList'
 export default {
     components: {
         RecipesList
+    },
+    data() {
+        return {
+            search: ''
+        }
+    },
+    methods: {
+        getRecipes() {
+            this.$store.dispatch('getRecipes', {}).then(data => {
+                // console.log('get recipes')
+                // console.log(data)
+            })
+        },
+        filterRecipes() {
+            this.$store.dispatch('filterRecipes', {}).then(data => {
+                // console.log('Filter recipes')
+                // console.log(data)
+            })
+        },
+        saveRecipes() {
+            this.$store.dispatch('updateRecipes', {}).then(data => {
+                // console.log('get recipes')
+                // console.log(data)
+            })
+        }
+    },
+
+    mounted() {
+        this.getRecipes()
     }
 }
 </script>
@@ -37,3 +64,5 @@ export default {
     margin-top: 6rem;
 }
 </style>
+
+

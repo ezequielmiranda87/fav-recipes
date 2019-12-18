@@ -6,7 +6,7 @@
     "private": true,
     "scripts": {
         "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
-        "start": "concurrently \"nuxt\" \"npm run db\"\n",
+        "start": " concurrently  \"cross-env NODE_ENV=development\" \"nodemon server/index.js --watch server\" \"npm run db\"\n",
         "build": "nuxt build",
         "generate": "nuxt generate",
         "test": "jest",
