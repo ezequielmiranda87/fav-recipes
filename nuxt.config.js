@@ -22,6 +22,15 @@ module.exports = {
         ],
         link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
     },
+    router: {
+        extendRoutes(routes, resolve) {
+            routes.push({
+                name: 'custom',
+                path: '/',
+                component: resolve(__dirname, 'pages/myrecipes.vue')
+            })
+        }
+    },
     /*
      ** Customize the progress-bar color
      */

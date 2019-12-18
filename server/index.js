@@ -1,7 +1,13 @@
 const express = require('express')
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
+const clientsData = require('../db/db.json')
+const recipes = require('../db/recipes.json')
+var Datastore = require('nedb')
 const app = express()
+
+var db = new Datastore()
+db.insert(recipes)
 
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
@@ -21,108 +27,51 @@ async function start() {
         await nuxt.ready()
     }
 
+    /**
+     * Get all Recipes
+     * @method GET /api/recipes
+     * @apiParam (Body){String} type
+     */
     app.get('/api/recipes', async (req, res, next) => {
-        res.json({
-            recipes: [
-                {
-                    ingredients: [
-                        {
-                            ingredient: 'fdfddf'
-                        },
-                        {
-                            ingredient: 'dfddf'
-                        }
-                    ],
-                    instructions: [
-                        {
-                            step: 'fddffd'
-                        },
-                        {
-                            step: 'fddfd'
-                        }
-                    ],
-                    name: 'New Recip',
-                    image_url:
-                        'https://hips.hearstapps.com/del.h-cdn.co/assets/17/44/2048x1024/landscape-1509399305-shot-2-105.jpg?resize=768:*',
-                    description:
-                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ',
-                    diners: '2',
-                    isVegetarian: true,
-                    id: 9
-                },
-                {
-                    ingredients: [
-                        {
-                            ingredient: 'dsds'
-                        },
-                        {
-                            ingredient: 'sdsdssd'
-                        },
-                        {
-                            ingredient: 'sdsdsd'
-                        },
-                        {
-                            ingredient: 'ssdsd'
-                        },
-                        {
-                            ingredient: 'dssdd'
-                        }
-                    ],
-                    instructions: [
-                        {
-                            step: 'dsdsds'
-                        },
-                        {
-                            step: 'ssdds'
-                        },
-                        {
-                            step: 'ssdds'
-                        },
-                        {
-                            step: 'dssdds'
-                        }
-                    ],
-                    name: 'test',
-                    image_url:
-                        'https://hips.hearstapps.com/del.h-cdn.co/assets/17/44/2048x1024/landscape-1509399305-shot-2-105.jpg?resize=768:*',
-                    description: 'sddsds',
-                    diners: '4',
-                    isVegetarian: true,
-                    id: 10
-                },
-                {
-                    ingredients: [
-                        {
-                            ingredient: 'dddd'
-                        },
-                        {
-                            ingredient: 'ddd'
-                        },
-                        {
-                            ingredient: 'ddd'
-                        }
-                    ],
-                    instructions: [
-                        {
-                            step: 'dd'
-                        },
-                        {
-                            step: 'ddd'
-                        },
-                        {
-                            step: 'ddd'
-                        }
-                    ],
-                    name: 'sdsd',
-                    image_url:
-                        'https://hips.hearstapps.com/del.h-cdn.co/assets/17/44/2048x1024/landscape-1509399305-shot-2-105.jpg?resize=768:*',
-                    description: 'dfdfdffd',
-                    diners: '3',
-                    isVegetarian: true,
-                    id: 11
-                }
-            ]
+        db.find({}, function(err, items) {
+            res.json(items)
         })
+    })
+
+    /**
+     * Create a Recipe
+     * @method POST /api/recipes
+     * @apiParam (Body){String} type
+     */
+    app.post('/api/recipes', async (req, res, next) => {
+        db.find({}, function(err, items) {
+            res.json(items)
+        })
+    })
+
+    /**
+     * Update a Recipe
+     * @method PUT /api/recipes
+     * @apiParam (Body){String} type
+     */
+
+    app.put('/api/recipes/:id', async (req, res, next) => {
+        res.json({ id: req.params.id })
+        // db.find({}, function(err, items) {
+        //     res.json(req.query.id)
+        // })
+    })
+
+    /**
+     * Delete a Recipes
+     * @method DELETE /api/recipes
+     * @apiParam (Body){String} type
+     */
+    app.delete('/api/recipes/:id', async (req, res, next) => {
+        res.json({ id: req.params.id })
+        // db.find({}, function(err, items) {
+        //     res.json(req.query.id)
+        // })
     })
 
     // Give nuxt middleware to express
