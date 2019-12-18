@@ -1,4 +1,5 @@
 const express = require('express')
+const bodyParser = require('body-parser')
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
 const clientsData = require('../db/db.json')
@@ -8,6 +9,9 @@ const app = express()
 
 var db = new Datastore()
 db.insert(recipes)
+
+app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
@@ -28,9 +32,8 @@ async function start() {
     }
 
     /**
-     * Get all Recipes
-     * @method GET /api/recipes
-     * @apiParam (Body){String} type
+     * @api {get} /recipes List all Recipes
+     * @apiGroup Recipes
      */
     app.get('/api/recipes', async (req, res, next) => {
         db.find({}, function(err, items) {
@@ -39,39 +42,38 @@ async function start() {
     })
 
     /**
-     * Create a Recipe
-     * @method POST /api/recipes
-     * @apiParam (Body){String} type
+     * @api {post} /recipes Create a Recipe
+     * @apiParam (Body){String} name
+     * @apiGroup Recipes
      */
     app.post('/api/recipes', async (req, res, next) => {
-        db.find({}, function(err, items) {
-            res.json(items)
+        // const recipe = req.body
+        db.insert(req.body, function(err, newDoc) {
+            res.json({ recipe: req.body })
         })
     })
 
     /**
-     * Update a Recipe
-     * @method PUT /api/recipes
-     * @apiParam (Body){String} type
+     * @api {put} /recipes Update a Recipe
+     * @apiParam (Body){String} name
+     * @apiGroup Recipes
      */
-
     app.put('/api/recipes/:id', async (req, res, next) => {
-        res.json({ id: req.params.id })
-        // db.find({}, function(err, items) {
-        //     res.json(req.query.id)
-        // })
+        const recipe = req.body
+        db.update({ _id: recipe._id }, recipe, {}, function(err) {
+            res.json(recipe)
+        })
     })
 
     /**
-     * Delete a Recipes
-     * @method DELETE /api/recipes
-     * @apiParam (Body){String} type
+     * @api {delete} /recipes Delete a Recipe
+     * @apiParam (Body){String} name
+     * @apiGroup Recipes
      */
     app.delete('/api/recipes/:id', async (req, res, next) => {
-        res.json({ id: req.params.id })
-        // db.find({}, function(err, items) {
-        //     res.json(req.query.id)
-        // })
+        db.remove({ _id: req.params.id }, {}, function(err, numRemoved) {
+            res.json({ id: req.params.id })
+        })
     })
 
     // Give nuxt middleware to express

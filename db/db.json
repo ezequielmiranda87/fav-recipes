@@ -10,30 +10,6 @@
     {
       "ingredients": [
         {
-          "ingredient": "fdfddf"
-        },
-        {
-          "ingredient": "dfddf"
-        }
-      ],
-      "instructions": [
-        {
-          "step": "fddffd"
-        },
-        {
-          "step": "fddfd"
-        }
-      ],
-      "name": "New Recip",
-      "image_url": "https://hips.hearstapps.com/del.h-cdn.co/assets/17/44/2048x1024/landscape-1509399305-shot-2-105.jpg?resize=768:*",
-      "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-      "diners": "2",
-      "isVegetarian": true,
-      "id": 9
-    },
-    {
-      "ingredients": [
-        {
           "ingredient": "dsds"
         },
         {

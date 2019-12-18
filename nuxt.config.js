@@ -1,3 +1,4 @@
+const serveStatic = require('serve-static')
 const colors = require('vuetify/es5/util/colors').default
 
 module.exports = {
@@ -22,6 +23,12 @@ module.exports = {
         ],
         link: [{ rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' }]
     },
+    serverMiddleware: [
+        {
+            path: '/doc',
+            handler: serveStatic(__dirname + '/api-doc/')
+        }
+    ],
     router: {
         extendRoutes(routes, resolve) {
             routes.push({

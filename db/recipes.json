@@ -1,97 +1,77 @@
-{
-    "recipes": [
-        {
-            "ingredients": [
-                {
-                    "ingredient": "fdfddf"
-                },
-                {
-                    "ingredient": "dfddf"
-                }
-            ],
-            "instructions": [
-                {
-                    "step": "fddffd"
-                },
-                {
-                    "step": "fddfd"
-                }
-            ],
-            "name": "New Recip",
-            "image_url": "https://hips.hearstapps.com/del.h-cdn.co/assets/17/44/2048x1024/landscape-1509399305-shot-2-105.jpg?resize=768:*",
-            "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
-            "diners": "2",
-            "isVegetarian": true,
-            "id": 9
-        },
-        {
-            "ingredients": [
-                {
-                    "ingredient": "dsds"
-                },
-                {
-                    "ingredient": "sdsdssd"
-                },
-                {
-                    "ingredient": "sdsdsd"
-                },
-                {
-                    "ingredient": "ssdsd"
-                },
-                {
-                    "ingredient": "dssdd"
-                }
-            ],
-            "instructions": [
-                {
-                    "step": "dsdsds"
-                },
-                {
-                    "step": "ssdds"
-                },
-                {
-                    "step": "ssdds"
-                },
-                {
-                    "step": "dssdds"
-                }
-            ],
-            "name": "test",
-            "image_url": "https://hips.hearstapps.com/del.h-cdn.co/assets/17/44/2048x1024/landscape-1509399305-shot-2-105.jpg?resize=768:*",
-            "description": "sddsds",
-            "diners": "4",
-            "isVegetarian": true,
-            "id": 10
-        },
-        {
-            "ingredients": [
-                {
-                    "ingredient": "dddd"
-                },
-                {
-                    "ingredient": "ddd"
-                },
-                {
-                    "ingredient": "ddd"
-                }
-            ],
-            "instructions": [
-                {
-                    "step": "dd"
-                },
-                {
-                    "step": "ddd"
-                },
-                {
-                    "step": "ddd"
-                }
-            ],
-            "name": "sdsd",
-            "image_url": "https://hips.hearstapps.com/del.h-cdn.co/assets/17/44/2048x1024/landscape-1509399305-shot-2-105.jpg?resize=768:*",
-            "description": "dfdfdffd",
-            "diners": "3",
-            "isVegetarian": true,
-            "id": 11
-        }
-    ]
-}
+[
+    {
+        "ingredients": [
+            {
+                "ingredient": "fdfddf"
+            },
+            {
+                "ingredient": "dfddf"
+            }
+        ],
+        "instructions": [
+            {
+                "step": "fddffd"
+            },
+            {
+                "step": "fddfd"
+            }
+        ],
+        "name": "New Recip",
+        "image_url": "https://hips.hearstapps.com/del.h-cdn.co/assets/17/44/2048x1024/landscape-1509399305-shot-2-105.jpg?resize=768:*",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "diners": "2",
+        "isVegetarian": true,
+        "_id": 1,
+        "id": 9
+    },
+    {
+        "ingredients": [
+            {
+                "ingredient": "fdfddf"
+            },
+            {
+                "ingredient": "dfddf"
+            }
+        ],
+        "instructions": [
+            {
+                "step": "fddffd"
+            },
+            {
+                "step": "fddfd"
+            }
+        ],
+        "name": "New Recip",
+        "image_url": "https://hips.hearstapps.com/del.h-cdn.co/assets/17/44/2048x1024/landscape-1509399305-shot-2-105.jpg?resize=768:*",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "diners": "2",
+        "isVegetarian": true,
+        "_id": 2,
+        "id": 9
+    },
+    {
+        "ingredients": [
+            {
+                "ingredient": "fdfddf"
+            },
+            {
+                "ingredient": "dfddf"
+            }
+        ],
+        "instructions": [
+            {
+                "step": "fddffd"
+            },
+            {
+                "step": "fddfd"
+            }
+        ],
+        "name": "New Recip",
+        "image_url": "https://hips.hearstapps.com/del.h-cdn.co/assets/17/44/2048x1024/landscape-1509399305-shot-2-105.jpg?resize=768:*",
+        "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. ",
+        "diners": "2",
+        "isVegetarian": true,
+        "_id": 3,
+        "id": 9
+    }
+]

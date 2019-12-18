@@ -17,6 +17,9 @@ $ npm run start
 
 # generate static project
 $ npm run generate
+
+#generate API-DOC
+$ npm run generate-doc
 ```
 
 ## Application arquitecture and stack:
@@ -28,6 +31,8 @@ $ npm run generate
 ## API REST
 
 The REST API is listening in the follow endpoint
+
+API DOC: http://localhost:3000/doc/
 
 ```
 localhost:3030/api

@@ -42,10 +42,7 @@
 export default {
     methods: {
         getRecipes() {
-            this.$store.dispatch('getRecipes', {}).then(data => {
-                // console.log('get recipes')
-                // console.log(data)
-            })
+            this.$store.dispatch('getRecipes', {}).then(data => {})
         }
     },
 
@@ -67,11 +64,6 @@ export default {
                     icon: 'mdi-book',
                     title: 'My Recipes',
                     to: '/myrecipes'
-                },
-                {
-                    icon: 'mdi-face',
-                    title: 'Sign up',
-                    to: '/signin'
                 },
                 {
                     icon: 'mdi-lock-open',

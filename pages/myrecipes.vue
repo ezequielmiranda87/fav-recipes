@@ -2,6 +2,12 @@
     <v-container class="grey lighten-5">
         <DeleteDialog :show="deleteDialog" @change="handleDeleteDialog"></DeleteDialog>
         <AddDialog :show="addDialog" @change="handleAddDialog"></AddDialog>
+        <UpdateDialog
+            v-if="editedItem"
+            :show="updateDialog"
+            :recipe="editedItem"
+            @change="handleUpdateDialog"
+        ></UpdateDialog>
 
         <v-row no-gutters>
             <v-col cols="12" sm="12">
@@ -36,7 +42,7 @@
                     </v-toolbar>
 
                     <v-expansion-panels>
-                        <v-expansion-panel v-for="item in filteredList" v-bind:key="item.id">
+                        <v-expansion-panel v-for="item in filteredList" v-bind:key="item._id">
                             <v-expansion-panel-header>
                                 <template v-slot:default="{ open }">
                                     <v-row no-gutters>
@@ -81,6 +87,7 @@
 <script>
 import Recipe from '../components/Recipe'
 import AddDialog from '../components/AddDialog'
+import UpdateDialog from '../components/UpdateDialog'
 import DeleteDialog from '../components/DeleteDialog'
 import { mapMutations } from 'vuex'
 
@@ -88,6 +95,7 @@ export default {
     components: {
         Recipe,
         AddDialog,
+        UpdateDialog,
         DeleteDialog
     },
     data() {
@@ -98,8 +106,10 @@ export default {
             },
             search: '',
             addDialog: '',
+            updateDialog: '',
             deleteDialog: '',
             deletedItem: {},
+            editedItem: {},
             newItem: {}
         }
     },
@@ -108,10 +118,14 @@ export default {
         handleAddDialog({ action, recipe }) {
             if (action) {
                 this.$store.dispatch('addRecipe', recipe)
-                console.log('dispatch acton')
-                console.log(recipe)
             }
             this.addDialog = false
+        },
+        handleUpdateDialog({ action, recipe }) {
+            if (action) {
+                this.$store.dispatch('updateRecipe', recipe)
+            }
+            this.updateDialog = false
         },
         handleDeleteDialog(data) {
             if (data.action) {
@@ -119,18 +133,10 @@ export default {
             }
             this.deleteDialog = false
         },
-        addRow(field) {
-            var elem = document.createElement('div')
-            this.rows[field].push({
-                title: ''
-            })
-        },
-        removeElement(index) {
-            this.rows.splice(index, 1)
-        },
         showEditDialog(item) {
+            console.log(item)
             this.editedItem = item
-            this.addDialog = true
+            this.updateDialog = true
         },
         showDeleteDialog(item) {
             this.deletedItem = item
@@ -140,13 +146,13 @@ export default {
             this.addDialog = false
             this.editedItem = {}
         },
-
         deleteRecipe() {
             this.$store.dispatch('deleteRecipe', this.deletedItem)
             this.deleteDialog = false
         },
 
         editRecipe(recipe) {
+            console.log('UPDATE ECIPEEEEEEEEEEEEEEE')
             this.$store.dispatch('updateRecipe', this.editedItem)
             this.addDialog = false
         },

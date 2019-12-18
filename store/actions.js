@@ -1,5 +1,5 @@
 export async function getRecipes({ state }, {}) {
-    state.recipes = await this.$axios.$get(`http://localhost:3030/api/recipes`)
+    state.recipes = await this.$axios.$get(`http://localhost:3000/api/recipes`)
     return state.recipes
 }
 
@@ -9,24 +9,25 @@ export async function filterRecipes({ state }, { name }) {
 
 export async function addRecipe({ commit }, recipe) {
     this.$axios
-        .$post(`http://localhost:30000/api/recipes`, recipe)
+        .$post(`http://localhost:3000/api/recipes`, recipe)
         .then(data => {
             commit('add', recipe)
         })
 }
 
 export async function updateRecipe({ commit }, recipe) {
+    debugger
     this.$axios
-        .$put(`http://localhost:3030/api/recipes/${recipe.id}`, recipe)
+        .$put(`http://localhost:3000/api/recipes/${recipe._id}`, recipe)
         .then(data => {
             commit('update', recipe)
         })
 }
 
-export async function deleteRecipe({ commit }, { id }) {
+export async function deleteRecipe({ commit }, { _id }) {
     this.$axios
-        .$delete(`http://localhost:3030/api/recipes/${id}`)
+        .$delete(`http://localhost:3000/api/recipes/${_id}`)
         .then(data => {
-            commit('delete', id)
+            commit('delete', _id)
         })
 }
