@@ -109,9 +109,7 @@ export default {
     computed: {
         recipeDate() {
             if (this.recipe) {
-                return moment(String(this.recipe.createdAt)).format(
-                    'MM/DD/YYYY hh:mm'
-                )
+                return moment(this.recipe.createdAt).format('MM/DD/YYYY hh:mm')
             }
         }
     }

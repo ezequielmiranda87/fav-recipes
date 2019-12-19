@@ -36,9 +36,6 @@ export default {
         getRecipes() {
             this.$store.dispatch('getRecipes', {}).then(data => {})
         },
-        filterRecipes() {
-            this.$store.dispatch('filterRecipes', {}).then(data => {})
-        },
         saveRecipes() {
             this.$store.dispatch('updateRecipes', {}).then(data => {})
         }

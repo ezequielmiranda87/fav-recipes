@@ -1,10 +1,9 @@
 export async function getRecipes({ state }, {}) {
-    state.recipes = await this.$axios.$get(`http://localhost:3000/api/recipes`)
+    const { recipes } = await this.$axios.$get(
+        `http://localhost:3000/api/recipes`
+    )
+    state.recipes = recipes
     return state.recipes
-}
-
-export async function filterRecipes({ state }, { name }) {
-    return {}
 }
 
 export async function addRecipe({ commit }, recipe) {
@@ -16,7 +15,6 @@ export async function addRecipe({ commit }, recipe) {
 }
 
 export async function updateRecipe({ commit }, recipe) {
-    debugger
     this.$axios
         .$put(`http://localhost:3000/api/recipes/${recipe._id}`, recipe)
         .then(data => {
@@ -30,4 +28,17 @@ export async function deleteRecipe({ commit }, { _id }) {
         .then(data => {
             commit('delete', _id)
         })
+}
+
+export async function getAuthUser({ commit }, { id }) {
+    const user = {
+        _id: '1',
+        username: 'Homer',
+        token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
+    }
+    return user
+}
+
+export async function fakeLogin({ commit }, { user }) {
+    commit('login', { username: '', password: '' })
 }
