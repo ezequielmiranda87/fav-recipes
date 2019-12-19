@@ -34,22 +34,13 @@ export default {
     },
     methods: {
         getRecipes() {
-            this.$store.dispatch('getRecipes', {}).then(data => {
-                // console.log('get recipes')
-                // console.log(data)
-            })
+            this.$store.dispatch('getRecipes', {}).then(data => {})
         },
         filterRecipes() {
-            this.$store.dispatch('filterRecipes', {}).then(data => {
-                // console.log('Filter recipes')
-                // console.log(data)
-            })
+            this.$store.dispatch('filterRecipes', {}).then(data => {})
         },
         saveRecipes() {
-            this.$store.dispatch('updateRecipes', {}).then(data => {
-                // console.log('get recipes')
-                // console.log(data)
-            })
+            this.$store.dispatch('updateRecipes', {}).then(data => {})
         }
     },
 
@@ -64,5 +55,3 @@ export default {
     margin-top: 6rem;
 }
 </style>
-
-

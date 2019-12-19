@@ -7,8 +7,9 @@ const clientsData = require('../db/db.json')
 const recipes = require('../db/recipes.json')
 var Datastore = require('nedb')
 const app = express()
+let server
 
-var db = new Datastore()
+var db = new Datastore({ timestampData: true })
 db.insert(recipes)
 
 app.use(cors())
@@ -82,11 +83,11 @@ async function start() {
     app.use(nuxt.render)
 
     // Listen the server
-    app.listen(port, host)
+    server = app.listen(port, host)
     consola.ready({
         message: `Server listening on http://${host}:${port}`,
         badge: true
     })
 }
-module.exports = app
 start()
+module.exports = { app }
