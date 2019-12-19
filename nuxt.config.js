@@ -80,7 +80,7 @@ module.exports = {
             }
         }
     },
-    proxy: ['http://localhost:3030/api'],
+    proxy: ['http://localhost:3030/api/recipes'],
 
     /*
      ** Build configuration

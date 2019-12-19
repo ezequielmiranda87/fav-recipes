@@ -8,12 +8,16 @@
 # install dependencies
 $ npm run install
 
+# build for production and launch api server
+$ npm run serve
+
+
 # serve with hot reload at localhost:3000
 $ npm run dev
 
-# build for production and launch server
-$ npm run build
-$ npm run start
+
+# serve api service at localhost:3030
+$ npm run service
 
 # generate static project
 $ npm run generate

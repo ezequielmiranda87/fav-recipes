@@ -5,9 +5,11 @@
     "author": "ezexiel",
     "private": true,
     "scripts": {
-        "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
-        "start": " concurrently  \"cross-env NODE_ENV=development\" \"nodemon server/index.js --watch server\"\n",
+        "dev": "concurrently  \"cross-env NODE_ENV=development\" \"nodemon server/api.js \" \"nodemon server/index.js --watch server\"\n",
+        "start": " concurrently  \"cross-env NODE_ENV=development\" \"nodemon server/api.js \" \"nodemon server/index.js --watch server\"\n",
         "build": "nuxt build",
+        "serve": " nuxt build  && nodemon server/api.js",
+        "service": "nodemon server/api.js",
         "generate": "nuxt generate",
         "test": "jest",
         "generate-doc": "apidoc -i server -o api-doc/"

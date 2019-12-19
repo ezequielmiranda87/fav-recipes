@@ -1,6 +1,6 @@
 const request = require('supertest')
-const app = require('../server/app').app
-const server = require('../server/app').server
+const app = require('../server/api').app
+const server = require('../server/api').server
 const recipeMockup = require('./mocks/').recipe
 
 describe('API REST Endpoints', () => {

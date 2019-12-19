@@ -1,18 +1,7 @@
 const express = require('express')
-const bodyParser = require('body-parser')
-const cors = require('cors')
 const consola = require('consola')
 const { Nuxt, Builder } = require('nuxt')
-const recipesData = require('../db/recipes.json')
-var Datastore = require('nedb')
-const app = require('./app').app
-
-var db = new Datastore({ timestampData: true })
-db.insert(recipesData)
-
-app.use(cors())
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: true }))
+const app = express()
 
 // Import and Set Nuxt.js options
 const config = require('../nuxt.config.js')
@@ -38,7 +27,7 @@ async function start() {
     // Listen the server
     app.listen(port, host)
     consola.ready({
-        message: `Server listening on http://${host}:${port}`,
+        message: `Nuxt App listing on http://${host}:${port}`,
         badge: true
     })
 }

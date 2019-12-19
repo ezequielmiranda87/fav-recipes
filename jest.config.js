@@ -13,6 +13,6 @@ module.exports = {
     collectCoverageFrom: [
         '<rootDir>/components/**/*.vue',
         '<rootDir>/pages/**/*.vue',
-        '<rootDir>/server/**/app.js'
+        '<rootDir>/server/**/api.js'
     ]
 }
