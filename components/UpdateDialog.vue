@@ -93,9 +93,9 @@
             <v-card-actions>
                 <v-spacer></v-spacer>
                 <v-btn color="blue darken-1" text @click="discard"
-                    >Discard</v-btn
+                    >Cancel</v-btn
                 >
-                <v-btn color="blue darken-1" text @click="accept">Accept</v-btn>
+                <v-btn color="blue darken-1" text @click="accept">Update</v-btn>
             </v-card-actions>
         </v-card>
     </v-dialog>
