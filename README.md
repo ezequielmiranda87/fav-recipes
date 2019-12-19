@@ -8,7 +8,7 @@
 # install dependencies
 $ npm run install
 
-# build for production and launch api server
+# build for production and launch api server at localhost:3000
 $ npm run serve
 
 
