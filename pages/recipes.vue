@@ -33,16 +33,9 @@ export default {
         }
     },
     methods: {
-        getRecipes() {
-            this.$store.dispatch('getRecipes', {}).then(data => {})
-        },
         saveRecipes() {
             this.$store.dispatch('updateRecipes', {}).then(data => {})
         }
-    },
-
-    mounted() {
-        this.getRecipes()
     }
 }
 </script>

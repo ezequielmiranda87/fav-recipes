@@ -32,8 +32,8 @@
                 style="width: 300px"
                 class="ml-0 pl-4"
                 v-text="title"
-            />
-            <v-spacer />
+            >
+            </v-toolbar-title>
         </v-app-bar>
 
         <v-content>
@@ -53,11 +53,15 @@ export default {
     methods: {
         getRecipes() {
             this.$store.dispatch('getRecipes', {}).then(data => {})
+        },
+        getAuthUser() {
+            this.$store.dispatch('getAuthUser', {}).then(data => {})
         }
     },
 
     mounted() {
         this.getRecipes()
+        this.getAuthUser()
     },
     data() {
         return {
@@ -74,11 +78,6 @@ export default {
                     icon: 'mdi-book',
                     title: 'My Recipes',
                     to: '/'
-                },
-                {
-                    icon: 'mdi-lock-open',
-                    title: 'Sign in',
-                    to: '/signin'
                 }
             ],
             miniVariant: false,
@@ -86,6 +85,12 @@ export default {
             rightDrawer: false,
             title: 'Fav Recipes App'
         }
+    },
+    computed: {
+        authUser() {
+            return this.$store.state.auth
+        }
+        // authUser: this.$store.auth
     }
 }
 </script>
