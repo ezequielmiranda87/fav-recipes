@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import Vuetify from 'vuetify'
 import { mount, createLocalVue } from '@vue/test-utils'
-import myrecipes from '../pages/myrecipes.vue'
+import myrecipes from '../pages/index.vue'
 
 Vue.use(Vuetify)
 Vue.use(Vuex)

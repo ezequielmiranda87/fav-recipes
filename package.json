@@ -6,11 +6,10 @@
     "private": true,
     "scripts": {
         "dev": "cross-env NODE_ENV=development nodemon server/index.js --watch server",
-        "start": " concurrently  \"cross-env NODE_ENV=development\" \"nodemon server/index.js --watch server\" \"npm run db\"\n",
+        "start": " concurrently  \"cross-env NODE_ENV=development\" \"nodemon server/index.js --watch server\"\n",
         "build": "nuxt build",
         "generate": "nuxt generate",
         "test": "jest",
-        "db": "json-server --watch db/db.json --routes db/routes.json --port 3030",
         "generate-doc": "apidoc -i server -o api-doc/"
     },
     "dependencies": {
@@ -23,7 +22,6 @@
         "cors": "^2.8.5",
         "cross-env": "^5.2.0",
         "express": "^4.16.4",
-        "json-server": "^0.15.1",
         "moment": "^2.24.0",
         "nedb": "^1.8.0",
         "nuxt": "^2.0.0"
