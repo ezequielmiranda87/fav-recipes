@@ -1,6 +1,9 @@
 <template>
     <v-container class="grey lighten-5">
-        <DeleteDialog :show="deleteDialog" @change="handleDeleteDialog"></DeleteDialog>
+        <DeleteDialog
+            :show="deleteDialog"
+            @change="handleDeleteDialog"
+        ></DeleteDialog>
         <AddDialog :show="addDialog" @change="handleAddDialog"></AddDialog>
         <UpdateDialog
             v-if="editedItem"
@@ -42,13 +45,18 @@
                     </v-toolbar>
 
                     <v-expansion-panels>
-                        <v-expansion-panel v-for="item in filteredList" v-bind:key="item._id">
+                        <v-expansion-panel
+                            v-for="item in filteredList"
+                            v-bind:key="item._id"
+                        >
                             <v-expansion-panel-header>
                                 <template v-slot:default="{ open }">
                                     <v-row no-gutters>
                                         <v-row no-gutters>
                                             <v-col cols="12">
-                                                <v-card-title small>{{item.name}}</v-card-title>
+                                                <v-card-title small>{{
+                                                    item.name
+                                                }}</v-card-title>
                                             </v-col>
                                         </v-row>
                                     </v-row>
@@ -56,7 +64,7 @@
                             </v-expansion-panel-header>
 
                             <v-expansion-panel-content>
-                                <Recipe v-if=" item" key="0" :recipe="item">
+                                <Recipe v-if="item" key="0" :recipe="item">
                                     <template slot="actions">
                                         <v-card-actions>
                                             <v-btn
@@ -64,13 +72,15 @@
                                                 color="indigo"
                                                 @click="showEditDialog(item)"
                                                 text
-                                            >Edit</v-btn>
+                                                >Edit</v-btn
+                                            >
                                             <v-btn
                                                 small
                                                 color="error"
                                                 @click="showDeleteDialog(item)"
                                                 text
-                                            >Delete</v-btn>
+                                                >Delete</v-btn
+                                            >
                                         </v-card-actions>
                                     </template>
                                 </Recipe>
@@ -134,7 +144,6 @@ export default {
             this.deleteDialog = false
         },
         showEditDialog(item) {
-            console.log(item)
             this.editedItem = item
             this.updateDialog = true
         },
@@ -152,7 +161,6 @@ export default {
         },
 
         editRecipe(recipe) {
-            console.log('UPDATE ECIPEEEEEEEEEEEEEEE')
             this.$store.dispatch('updateRecipe', this.editedItem)
             this.addDialog = false
         },
@@ -183,5 +191,4 @@ export default {
 }
 </script>
 
-<style scoped>
-</style>
+<style scoped></style>

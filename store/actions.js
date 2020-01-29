@@ -1,33 +1,44 @@
 export async function getRecipes({ state }, {}) {
-    state.recipes = await this.$axios.$get(`http://localhost:3000/api/recipes`)
+    const { recipes } = await this.$axios.$get(
+        `http://localhost:3030/api/recipes`
+    )
+    state.recipes = recipes
     return state.recipes
 }
 
-export async function filterRecipes({ state }, { name }) {
-    return {}
-}
-
-export async function addRecipe({ commit }, recipe) {
-    this.$axios
-        .$post(`http://localhost:3000/api/recipes`, recipe)
+export async function addRecipe({ state }, recipe) {
+    return await this.$axios
+        .$post(`http://localhost:3030/api/recipes`, recipe)
         .then(data => {
-            commit('add', recipe)
+            state.recipes.push(recipe)
         })
 }
 
-export async function updateRecipe({ commit }, recipe) {
-    debugger
-    this.$axios
-        .$put(`http://localhost:3000/api/recipes/${recipe._id}`, recipe)
+export async function updateRecipe({ state }, recipe) {
+    return await this.$axios
+        .$put(`http://localhost:3030/api/recipes/${recipe._id}`, recipe)
         .then(data => {
-            commit('update', recipe)
+            const item = state.recipes.find(item => item._id === recipe._id)
+            Object.assign(item, recipe)
         })
 }
 
-export async function deleteRecipe({ commit }, { _id }) {
-    this.$axios
-        .$delete(`http://localhost:3000/api/recipes/${_id}`)
+export async function deleteRecipe({ state }, { _id }) {
+    return this.$axios
+        .$delete(`http://localhost:3030/api/recipes/${_id}`)
         .then(data => {
-            commit('delete', _id)
+            return state.recipes.splice(
+                state.recipes.findIndex(el => el._id == _id),
+                1
+            )
         })
+}
+
+export async function getAuthUser({ state }, { id }) {
+    const user = {
+        _id: '1',
+        username: 'Homer',
+        token: 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9'
+    }
+    state.auth = user
 }

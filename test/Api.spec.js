@@ -1,25 +1,37 @@
-const app = require('../server/index') // Link to your server file
-const supertest = require('supertest')
-const axios = require('axios')
-const request = supertest(app)
+const request = require('supertest')
+const app = require('../server/api').app
+const server = require('../server/api').server
+const recipeMockup = require('./mocks/').recipe
 
-// test.before('Init Nuxt.js', async t => {
-//     // stuff...
-//     nuxt.listen(3000, 'localhost')
-//     // Set base URL for axios to the nuxt server
-//     axios.defaults.baseURL = 'http://localhost:3000'
-//     axios.defaults.headers.common['Accept'] = 'application/json'
-// })
-
-describe('gets the test endpoint', async done => {
-    before(function() {
-        nuxt.listen(3000, 'localhost')
-        // Set base URL for axios to the nuxt server
-        axios.defaults.baseURL = 'http://localhost:3000'
-        axios.defaults.headers.common['Accept'] = 'application/json'
+describe('API REST Endpoints', () => {
+    it('should retrieve a list recipes', async () => {
+        const res = await request(app).get('/api/recipes')
+        expect(res.statusCode).toEqual(200)
+        expect(res.body).toHaveProperty('recipes')
     })
-    it('Route /api exists and emits json', async t => {
-        const response = await axios.get('/api/recipes')
-        logger.info(`response.data = ` + response.data)
+
+    it('should create a new recipes', async () => {
+        const res = await request(app)
+            .post('/api/recipes')
+            .send(recipeMockup)
+        expect(res.statusCode).toEqual(200)
+        expect(res.body).toHaveProperty('recipe')
+    })
+
+    it('should update a  recipe', async () => {
+        const res = await request(app)
+            .put('/api/recipes/1')
+            .send(recipeMockup)
+        expect(res.statusCode).toEqual(200)
+        expect(res.body).toHaveProperty('recipe')
+    })
+
+    it('should delete a  recipe', async () => {
+        const res = await request(app).delete('/api/recipes/1')
+        expect(res.statusCode).toEqual(200)
+        expect(res.body).toHaveProperty('id')
+    })
+    afterAll(() => {
+        server.close()
     })
 })

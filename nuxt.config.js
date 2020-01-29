@@ -29,15 +29,7 @@ module.exports = {
             handler: serveStatic(__dirname + '/api-doc/')
         }
     ],
-    router: {
-        extendRoutes(routes, resolve) {
-            routes.push({
-                name: 'custom',
-                path: '/',
-                component: resolve(__dirname, 'pages/myrecipes.vue')
-            })
-        }
-    },
+
     /*
      ** Customize the progress-bar color
      */
@@ -88,7 +80,7 @@ module.exports = {
             }
         }
     },
-    proxy: ['http://localhost:3030/api'],
+    proxy: ['http://localhost:3030/api/recipes'],
 
     /*
      ** Build configuration
